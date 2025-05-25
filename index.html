@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evgeniy Onegin - Салон маникюра</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lobster', cursive;
+            cursor: url('normal-cursor.png'), auto;
+        }
+        a, button, .nav-item, .slider-arrow, 
+        .footer-list li, .slide, .nav-icon-wrapper {
+            cursor: url('active-cursor.png'), pointer;
+        }
+
+        body {
+            width: 1440px;
+            margin: 0 auto;
+            background-color: rgb(245, 245, 245);
+            color: rgb(25, 21, 18);
+        }
+
+
+        header {
+            text-align: center;
+            padding: 20px 0 0;
+        }
+
+        .logo {
+            width: 560px;
+            height: auto;
+            margin: -200;
+        }
+
+        h1 {
+            font-size: 82px;
+            margin: 0;
+            margin-top: -100px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: rgb(88, 79, 76);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .divider {
+            width: 1440px;
+            height: 66px;
+            margin-top: -10px;
+            margin-bottom: 40px;
+        }
+
+
+        .nav-sections {
+            display: flex;
+            justify-content: space-around;
+            padding: 0 100px;
+            margin-bottom: 0;
+        }
+
+        .nav-item {
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            padding: 20px;
+            cursor: url('active-cursor.png'), pointer; 
+        }
+
+        .nav-icon-wrapper {
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: url('active-cursor.png'), pointer; 
+        }
+
+        .nav-icon-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background-color: rgba(235, 179, 188, 0);
+            border-radius: 50%;
+            filter: blur(40px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .nav-item:hover .nav-icon-wrapper::before {
+            background-color: rgba(235, 179, 188, 0.5);
+        }
+
+        .nav-icon {
+            width: 160px;
+            height: auto;
+            margin-bottom: 10px;
+            position: relative;
+            display: block;
+            cursor: url('active-cursor.png'), pointer;
+        }
+
+        .nav-text {
+            font-size: 28px;
+            cursor: url('active-cursor.png'), pointer; 
+        }
+
+   
+        .about {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-image {
+            width: 1364px;
+            height: 896px;
+            margin: 0 auto;
+        }
+
+   
+        .works {
+            margin-bottom: 80px;
+        }
+
+        .works-header {
+            width: 309px;
+            height: 173px;
+            margin: 0 565px -30px;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            gap: 108px;
+            padding-left: 50px;
+            scroll-behavior: smooth;
+            overflow-x: scroll;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            position: relative; 
+            z-index: 1; 
+        }
+
+        .slider-arrow {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 100px;
+            cursor: url('active-cursor.png'), pointer;
+            z-index: 10; 
+            transition: transform 0.3s ease;
+        }
+
+        .slider-arrow:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+
+ 
+        footer {
+            position: relative;
+            background: linear-gradient(to bottom, transparent, rgb(88, 79, 76));
+            padding: 40px 0 60px;
+            color: rgb(237, 233, 231);
+        }
+
+        .footer-divider {
+            width: 1440px;
+            height: 66px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            width: 376px;
+            height: 256px;
+            position: absolute;
+            left: 517px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .footer-columns {
+            display: flex;
+            padding-left: 316px;
+        }
+
+        .footer-column {
+            width: 200px;
+        }
+
+        .footer-column:nth-child(2) {
+            margin-left: 415px;
+        }
+
+        .footer-column:nth-child(3) {
+            margin-left: 50px;
+        }
+
+        .footer-list {
+            list-style-type: none;
+        }
+
+        .footer-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            text-align: left;
+            transition: color 0.3s ease;
+        }
+
+        .footer-list li:hover {
+            color: rgb(235, 179, 188);
+        }
+
+        .footer-list a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .footer-list li:before {
+            content: "❤";
+            position: absolute;
+            left: 0;
+        }
+
+        .footer-column:nth-child(1) .footer-list li {
+            font-size: 16px;
+        }
+
+        .footer-column:nth-child(2) .footer-list li {
+            font-size: 16px;
+        }
+
+        .footer-column:nth-child(3) .footer-list li {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+ 
+    <header>
+        <img src="EO_logo_Pink.png" alt="Evgeniy Onegin" class="logo">
+        <h1>Evgeniy Onegin</h1>
+        <p class="subtitle">Быть можно дельным человеком<br>и думать о красе ногтей</p>
+        
+        <div class="nav-sections">
+            <a href="Portfolio.html" class="nav-item">
+                <div class="nav-icon-wrapper">
+                    <img src="EO_P_icon.png" alt="Портфолио" class="nav-icon">
+                </div>
+                <p class="nav-text">Портфолио</p>
+            </a>
+            <a href="Prise.html" class="nav-item">
+                <div class="nav-icon-wrapper">
+                    <img src="EO_PL_icon.png" alt="Прайс-лист" class="nav-icon">
+                </div>
+                <p class="nav-text">Прайс-лист</p>
+            </a>
+            <a href="FAQ.html" class="nav-item">
+                <div class="nav-icon-wrapper">
+                    <img src="EO_FAQ_icon.png" alt="FAQ" class="nav-icon">
+                </div>
+                <p class="nav-text">FAQ</p>
+            </a>
+            <a href="Contacts.html" class="nav-item">
+                <div class="nav-icon-wrapper">
+                    <img src="EO_C_icon.png" alt="Контакты" class="nav-icon">
+                </div>
+                <p class="nav-text">Контакты</p>
+            </a>
+        </div>
+        
+        <img src="Split.png" alt="" class="divider">
+    </header>
+
+   
+    <section class="about">
+        <img src="AboutProject.png" alt="О проекте" class="about-image">
+    </section>
+
+    <!-- Наши работы -->
+    <section class="works">
+        <img src="OurWorks_Header.png" alt="Наши работы" class="works-header">
+        
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <img src="Slider1.png" alt="Работа 1" class="slide">
+                <img src="Slider2.png" alt="Работа 2" class="slide">
+                <img src="Slider3.png" alt="Работа 3" class="slide">
+                <img src="Slider4.png" alt="Работа 4" class="slide">
+                <img src="Slider5.png" alt="Работа 5" class="slide">
+                <img src="Slider6.png" alt="Работа 6" class="slide">
+                <img src="Slider7.png" alt="Работа 7" class="slide">
+                <img src="Slider8.png" alt="Работа 8" class="slide">
+            </div>
+            <img src="Arrow.png" alt="Следующая" class="slider-arrow" id="slider-arrow">
+        </div>
+    </section>
+
+
+    <footer>
+        <img src="Split.png" alt="" class="footer-divider">
+        
+        <div class="footer-columns">
+            <div class="footer-column">
+                <ul class="footer-list">
+                    <li>Контактный номер<br>8(800)555-35-35</li>
+                    <li>По вопросам<br>Onegiinails@mail.ru</li>
+                    <li>Стать частью команды</li>
+                </ul>
+            </div>
+           
+            <div class="footer-column">
+                <ul class="footer-list">
+                    <li>Наши соц-сети</li>
+                    <li>Сообщить об ошибке</li>
+                </ul>
+            </div>
+            <img src="EO_logo_White.png" alt="Evgeniy Onegin" class="footer-logo">
+            <div class="footer-column">
+                <ul class="footer-list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="Portfolio.html">Портфолио</a></li>
+                    <li><a href="Prise.html">Прайс-лист</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="Contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const normalCursor = 'url("normal-cursor.png"), auto';
+    const activeCursor = 'url("active-cursor.png"), pointer';
+    
+    
+    const clickableElements = document.querySelectorAll(
+        'a, button, .nav-item, .nav-icon-wrapper, .nav-icon, .nav-text, ' +
+        '.slider-arrow, .footer-list li, .slide'
+    );
+    
+    clickableElements.forEach(el => {
+        el.style.cursor = activeCursor;
+        
+        el.addEventListener('mouseenter', () => {
+            document.body.style.cursor = activeCursor;
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            if (!el.matches(':hover')) {
+                document.body.style.cursor = normalCursor;
+            }
+        });
+    });
+
+
+    const slider = document.getElementById('slider');
+    const arrow = document.getElementById('slider-arrow');
+    let isScrolling = false;
+    let startX;
+    let scrollLeft;
+    let isDown = false;
+
+
+    slider.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const delta = Math.max(-1, Math.min(1, (e.deltaY || -e.detail)));
+        const scrollAmount = 50;
+        
+        slider.scrollBy({
+            left: delta * scrollAmount * 5,
+            behavior: 'smooth'
+        });
+    });
+    
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+        slider.style.scrollBehavior = 'auto';
+        slider.style.cursor = 'grabbing';
+    });
+    
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.style.scrollBehavior = 'smooth';
+        slider.style.cursor = 'url(\'active-cursor.png\'), pointer';
+    });
+    
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.style.scrollBehavior = 'smooth';
+        slider.style.cursor = 'url(\'active-cursor.png\'), pointer';
+    });
+    
+    slider.addEventListener('mousemove', (e) => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+    
+
+    slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+        slider.style.scrollBehavior = 'auto';
+    }, {passive: false});
+    
+    slider.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        const x = e.touches[0].pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+    }, {passive: false});
+    
+    slider.addEventListener('touchend', () => {
+        slider.style.scrollBehavior = 'smooth';
+    });
+    
+    function scrollSlider(direction) {
+        const scrollAmount = 816; 
+        const maxScroll = slider.scrollWidth - slider.clientWidth;
+        
+        if (direction === 'next') {
+            if (slider.scrollLeft + slider.clientWidth >= maxScroll - 10) {
+
+                slider.scrollTo({
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+
+                slider.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }
+
+
+    arrow.addEventListener('click', (e) => {
+        e.stopPropagation(); 
+        scrollSlider('next');
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Evgeniy Onegin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lobster', cursive;
+            cursor: url('normal-cursor.png'), auto;
+        }
+
+        body {
+            width: 1440px;
+            margin: 0 auto;
+            background-color: rgb(237, 233, 231);
+            color: rgb(24, 21, 18);
+        }
+
+        a, button {
+            cursor: url('active-cursor.png'), pointer;
+        }
+
+
+        .header {
+            padding: 30px 0;
+            position: relative;
+        }
+
+        .back-arrow {
+            position: absolute;
+            left: 50px;
+            top: 30px;
+            width: 90px;
+            height: 90px;
+            transition: transform 0.3s;
+            cursor: url('active-cursor.png'), pointer;
+        }
+
+        .back-arrow:hover {
+            transform: scale(1.1);
+        }
+
+        .contacts-icon {
+            width: 250px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .divider {
+            width: 1440px;
+            height: 66px;
+            margin-top: 40px;
+        }
+
+
+        .contacts-section {
+            width: 100%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .contacts-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: -70px;
+        }
+
+        .social-link {
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .social-link:hover {
+            transform: scale(1.05);
+        }
+
+        .social-image {
+            height: auto;
+            width: 550px;
+        }
+
+        .instagram-handle {
+            font-size: 40px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+
+        footer {
+            position: relative;
+            background: linear-gradient(to bottom, transparent, rgb(88, 79, 76));
+            padding: 40px 0 60px;
+            color: rgb(237, 233, 231);
+        }
+
+        .footer-divider {
+            width: 1440px;
+            height: 66px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            width: 376px;
+            height: 256px;
+            position: absolute;
+            left: 517px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .footer-columns {
+            display: flex;
+            padding-left: 316px;
+        }
+
+        .footer-column {
+            width: 200px;
+        }
+
+        .footer-column:nth-child(2) {
+            margin-left: 415px;
+        }
+
+        .footer-column:nth-child(3) {
+            margin-left: 50px;
+        }
+
+        .footer-list {
+            list-style-type: none;
+        }
+
+        .footer-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            text-align: left;
+            transition: color 0.3s ease;
+        }
+
+        .footer-list li:hover {
+            color: rgb(235, 179, 188);
+        }
+
+        .footer-list a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .footer-list li:before {
+            content: "❤";
+            position: absolute;
+            left: 0;
+        }
+
+        .footer-column:nth-child(1) .footer-list li {
+            font-size: 16px;
+        }
+
+        .footer-column:nth-child(2) .footer-list li {
+            font-size: 16px;
+        }
+
+        .footer-column:nth-child(3) .footer-list li {
+            font-size: 24px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html">
+            <img src="Arrow_2.png" alt="На главную" class="back-arrow">
+        </a>
+        <img src="Контакты.png" alt="Контакты" class="contacts-icon">
+        <img src="Split.png" alt="" class="divider">
+    </div>
+
+  
+    <div class="contacts-section">
+
+        <div class="contacts-row">
+            <a href="https://tlgg.ru/@designer_larva" class="social-link" target="_blank">
+                <img src="Telegramm.png" alt="Telegram" class="social-image">
+            </a>
+            <a href="https://vk.com/designer.larva" class="social-link" target="_blank">
+                <img src="Vkontakte.png" alt="VKontakte" class="social-image">
+            </a>
+        </div>
+
+
+        <div class="instagram-handle">@E_Onegiinails</div>
+
+
+        <div class="contacts-row">
+            <a href="https://www.instagram.com/designer_larva?igsh=bDl4NW9mdzY1OW1h" class="social-link" target="_blank">
+                <img src="Insta.png" alt="Instagram" class="social-image">
+            </a>
+            <a href="https://t.me/sizhka_mua" class="social-link" target="_blank">
+                <img src="Yclients.png" alt="Yclients" class="social-image">
+            </a>
+        </div>
+    </div>
+
+
+    <footer>
+        <img src="Split.png" alt="" class="footer-divider">
+        
+        <div class="footer-columns">
+            <div class="footer-column">
+                <ul class="footer-list">
+                    <li>Контактный номер<br>8(800)555-35-35</li>
+                    <li>По вопросам<br>Onegiinails@mail.ru</li>
+                    <li>Стать частью команды</li>
+                </ul>
+            </div>
+           
+            <div class="footer-column">
+                <ul class="footer-list">
+                    <li>Наши соц-сети</li>
+                    <li>Сообщить об ошибке</li>
+                </ul>
+            </div>
+            <img src="EO_logo_White.png" alt="Evgeniy Onegin" class="footer-logo">
+            <div class="footer-column">
+                <ul class="footer-list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="Portfolio.html">Портфолио</a></li>
+                    <li><a href="Prise.html">Прайс-лист</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="Contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const normalCursor = 'url("normal-cursor.png"), auto';
+            const activeCursor = 'url("active-cursor.png"), pointer';
+            
+
+            const clickableElements = document.querySelectorAll('a, button, .back-arrow, .social-image, .footer-list li');
+            clickableElements.forEach(el => {
+                el.style.cursor = activeCursor;
+                
+                el.addEventListener('mouseenter', () => {
+                    document.body.style.cursor = activeCursor;
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    document.body.style.cursor = normalCursor;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
